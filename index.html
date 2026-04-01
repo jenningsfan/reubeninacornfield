@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reuben in a cornfield</title>
   <style>
     html, body {
       margin: 0;
       height: 100%;
       background: black;
       overflow: hidden;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+    }
+
+    #overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
     }
 
     iframe {
@@ -22,10 +37,20 @@
 </head>
 <body>
 
-<iframe
-  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0"
+<div id="overlay">Click to view content</div>
+
+<iframe id="video"
+  src=""
   allow="autoplay; fullscreen">
 </iframe>
+
+<script>
+  document.getElementById("overlay").onclick = function () {
+    document.getElementById("video").src =
+      "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+    this.style.display = "none";
+  };
+</script>
 
 </body>
 </html>
